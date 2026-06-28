@@ -1,0 +1,22 @@
+{% layout 'different' %}
+<h1 id="title">Hello World from template</h1>
+<div id="cart_box">Empty</div>
+<div id="counter_box"></div>
+{% section 'nice_text' %}
+<script>
+  const sections = ['cart_info', 'hello_text', 'nice_text'];
+  fetch(window.location.pathname + `?section_id=${sections[2]}`)
+    .then((res) => res.text())
+    .then((data) => {
+      console.log(data);
+      document.getElementById('title').outerHTML = data;
+    })
+    .catch((e) => console.log(e));
+  fetch(window.location.pathname + '?sections=counter')
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById('counter_box').innerHTML = data.counter;
+      console.log(data);
+    })
+    .catch((e) => console.log(e));
+</script>

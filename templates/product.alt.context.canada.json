@@ -1,0 +1,25 @@
+{
+  "context": {
+    // "market": "<region_code>" → activates only for that market's visitors
+    // "b2b": true → activates only for wholesale/B2B customers
+    // use ONE of these per context block
+    "market": "canada"
+  },
+
+  // PARENT (required) — base template this one inherits from
+  // only sections/settings/blocks you override need to be listed below —
+  // everything else is inherited from parent AS-IS
+  "parent": "product.alt.json",
+
+  // SECTIONS — only include sections/settings/blocks you want to OVERRIDE
+  // unlisted sections, settings, and blocks fall back to the parent template
+  "sections": {
+    "main": {
+      // settings here override ONLY the keys listed — others stay as parent defines them
+      "settings": {
+        "text_color": "#2E4540"
+      }
+      // blocks — override specific blocks by their parent block ID
+    }
+  }
+}

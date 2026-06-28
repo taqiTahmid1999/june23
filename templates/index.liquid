@@ -1,1 +1,235 @@
-<h1>Hello World From June 23</h1>
+<h1>Hello World</h1>
+{% section 'cart_info' %}
+<button id="get">Get Cart</button>
+<button id="add">Add to Cart</button>
+<button id="add2">Add to Cart 2</button>
+<button id="update">Update</button>
+<button id="change">Change</button>
+<button id="clear">clear</button>
+<button id="shipping_rates">Shipping Rates</button>
+<button id="update2">Give Address</button>
+<button id="update3">Async Address</button>
+<button id="get_shipping_rates">Get Shipping Rates</button>
+<button id="add_attributes">Add Attributes</button>
+<script>
+  document.getElementById('add_attributes').addEventListener('click', async function () {
+    try {
+      const data = await fetch(window.Shopify.routes.root + 'cart/update.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          attributes: {
+            __hidden_attributes: 'Allah Forgive me',
+            wow: 'Oh my God',
+          },
+        }),
+      }).then((res) => res.json());
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('get_shipping_rates').addEventListener('click', async function () {
+    try {
+      const data = await fetch(
+        window.Shopify.routes.root +
+          'cart/shipping_rates.json?shipping_address%5Bzip%5D=K1N+5T2&shipping_address%5Bcountry%5D=Canada&shipping_address%5Bprovince%5D=Ontario'
+      ).then((res) => res.json());
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('update3').addEventListener('click', async function () {
+    try {
+      const data = await fetch(
+        window.Shopify.routes.root +
+          'cart/async_shipping_rates.json?shipping_address%5Bzip%5D=K1N+5T2&shipping_address%5Bcountry%5D=Canada&shipping_address%5Bprovince%5D=Ontario'
+      ).then((res) => res.json());
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  ///cart/async_shipping_rates.json?shipping_address%5Bzip%5D=K1N+5T2&shipping_address%5Bcountry%5D=Canada&shipping_address%5Bprovince%5D=Ontario
+  document.getElementById('update2').addEventListener('click', async function () {
+    try {
+      const data = await fetch(
+        window.Shopify.routes.root +
+          'cart/prepare_shipping_rates.json?shipping_address%5Bzip%5D=K1N+5T2&shipping_address%5Bcountry%5D=Canada&shipping_address%5Bprovince%5D=Ontario',
+        {
+          method: 'POST',
+        }
+      ).then((res) => res.json());
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('clear').addEventListener('click', async function () {
+    const data = await fetch(window.Shopify.routes.root + 'cart/clear.js').then((res) => res.json());
+    console.log(data);
+  });
+  document.getElementById('shipping_rates').addEventListener('click', async function () {
+    try {
+      const response = await fetch(window.Shopify.routes.root + 'cart/shipping_rates.json');
+      const data = await response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('get').addEventListener('click', async function () {
+    console.log('Click me Button is been clicked');
+    try {
+      const response = await fetch(window.Shopify.routes.root + 'cart.js');
+      const data = await response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('add').addEventListener('click', async function () {
+    console.log('Add button is been pushed');
+    try {
+      let formData = {
+        items: [
+          {
+            id: 47924952695010,
+            quantity: 2,
+          },
+        ],
+      };
+      const response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('add2').addEventListener('click', async function () {
+    try {
+      const response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: [
+            {
+              id: 47924952695010,
+              quantity: 7,
+              properties: {
+                greetings: 'hello World',
+                _wow: 'Nice Job Dude!',
+              },
+            },
+          ],
+          sections: 'cart_info',
+        }),
+      });
+
+      const data = await response.json();
+      document.getElementById('shopify-section-cart_info').outerHTML = data.sections['cart_info'];
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('update').addEventListener('click', async function () {
+    try {
+      const response = await fetch(window.Shopify.routes.root + 'cart/update.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ updates: [2, 3] }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  document.getElementById('change').addEventListener('click', async function () {
+    console.log('Change Button is clicked');
+    try {
+      const response = await fetch(window.Shopify.routes.root + 'cart/change.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: '47924952695010:803c5deb0d72ded0842c5bccce4c7aaa',
+          quantity: 6,
+          properties: {
+            greetings: 'Nice Job Dude',
+          },
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+</script>
+
+<button id="show">Show Product</button>
+<button id="add_product" hidden>Add ID: <span id="variant"></span></button>
+<script>
+  const add_product_elem = document.getElementById('add_product');
+  const variant_elem = document.getElementById('variant');
+  let variant_id;
+  document.getElementById('show').addEventListener('click', async function () {
+    try {
+      const data = await fetch(window.Shopify.routes.root + 'products/the-multi-managed-snowboard.js').then((res) =>
+        res.json()
+      );
+      console.log(data);
+      add_product_elem.hidden = false;
+      variant_id = data.variants[0].id;
+      variant_elem.innerText = variant_id;
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  add_product_elem.addEventListener('click', async function () {
+    const data = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        items: [
+          {
+            id: variant_id,
+            quantity: 9,
+          },
+        ],
+        sections: 'cart_info',
+      }),
+    }).then((res) => res.json());
+    const cart_info_section = document.getElementById('shopify-section-cart_info');
+    cart_info_section.outerHTML = data.sections['cart_info'];
+    console.log(data);
+  });
+  document.addEventListener('DOMContentLoaded', async function () {
+    try {
+      const response3 = await fetch(window.Shopify.routes.root + 'search/suggest.json?q=snow');
+      console.log(response3);
+      const result = await response3.json();
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+</script>

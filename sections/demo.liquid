@@ -1,0 +1,76 @@
+<h1>{{ section.settings.title }}</h1>
+{% schema %}
+{
+  // NAME (required) — display title in theme editor sidebar. Make it clear/descriptive.
+  "name": "Demo",
+
+  // TAG (optional) — wrapper element around the section. Default = div.
+  // accepted values ONLY: div | section | article | aside | header | footer
+  // use semantic tags for a11y/SEO (slideshow = section, sidebar = aside, etc.)
+
+  // CLASS (optional) — appended to the auto-added "shopify-section" class on the wrapper
+  // lets you target the wrapper in CSS without an extra inner div
+
+  // LIMIT (optional) — max instances of this section per template/group
+  // only accepts 1 or 2. omit = unlimited. use 1 for hero/announcement-bar type sections
+
+  // SETTINGS (optional) — input fields shown in the editor sidebar
+  // each needs: type (required), id (required, unique, used as section.settings.ID in Liquid),
+  // label (required), default (optional, prefilled on add)
+  // ⚠️ IDs must be unique within the section. If statically rendered, ALL instances share the same setting values.
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Welcome"
+    }
+  ],
+
+  // BLOCKS (optional) — defines block types merchants can add inside this section
+  // type (required, unique, stable identifier — use in {% case block.type %}, NEVER use block.id)
+  // name (required, sidebar display name) | limit (optional, max of THIS block type)
+  // settings (optional). ⚠️ block names/types unique within section; setting IDs unique within each block.
+  // ALWAYS put {{ block.shopify_attributes }} on the block's root element — required for editor select/highlight/move.
+  // DYNAMIC BLOCK TITLES: naming a setting id "heading" (1st priority), then "title", then "text"
+  // auto-shows that setting's value as the block's sidebar title instead of the generic block name.
+
+  // MAX_BLOCKS (optional) — custom cap below Shopify's absolute limit of 50 blocks/section
+  // shows "Add slide (3/5 used)" feedback in editor. ⚠️ static blocks do NOT count toward this — only dynamic ones.
+
+  // PRESETS (optional, but REQUIRED for merchants to add this section from the Add Section picker)
+  // name (required, label in picker + persisted in JSON) | category (optional, groups under collapsible heading)
+  // settings/blocks (optional, prefill on add). Presets sort alphabetically; uncategorized ones show first.
+  // ⚠️ Sections WITH presets should NOT also be statically rendered — use "default" instead for static sections.
+  "presets": [
+    {
+      "name": "Slideshow",
+      "category": "Banners",
+      "settings": {
+        "title": "Featured Text"
+      }
+    }
+  ]
+
+  // DEFAULT (optional) — ONLY for statically rendered sections (hardcoded via {% section 'name' %})
+  // same shape as a single preset. Use presets for dynamic/editor-added sections, default for static ones.
+  // best practice: only use "default" for sections reused across multiple themes/shops —
+  // for sections pre-installed in one theme, set defaults on each setting's own "default" property instead.
+  // "default": {
+  //   "settings": { "title": "Slideshow" },
+  //   "blocks": [ { "type": "slide" } ]
+  // },
+
+  // LOCALES (optional) — built-in translations for section text strings
+  // access in Liquid as: {{ 'sections.[section-filename].[key]' | t }}
+  // merchant edits save to the theme's locale file, NOT the schema. Useful for multi-theme reusable sections.
+
+  // ENABLED_ON / DISABLED_ON (optional) — controls which templates/groups can use this section
+  // use ONLY ONE of the two, never both.
+  // enabled_on = whitelist (only available on listed templates/groups)
+  // disabled_on = blacklist (available everywhere EXCEPT listed templates/groups)
+  // templates: any page type (index, product, collection, blog, article, page, cart, search, 404,
+  //   password, customers/account, customers/login, etc.) or ["*"] for all
+  // groups: header, footer, aside, custom.NAME, or ["*"] for all
+}
+{% endschema %}

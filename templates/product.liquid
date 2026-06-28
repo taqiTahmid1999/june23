@@ -1,0 +1,28 @@
+{% section 'counter.liquid' %}
+<h1 id="title_name"></h1>
+<ul id="recommendation"></ul>
+
+<script>
+  const recommendation_elem = document.getElementById('recommendation');
+  document.addEventListener('DOMContentLoaded', async function () {
+    try {
+      const response = await fetch(window.Shopify.routes.root + 'products/{{-product.handle-}}.js');
+      const product_json = await response.json();
+      console.log(product_json);
+      document.getElementById('title_name').innerText = product_json.title + ': ' + product_json.id;
+      const response2_string = 'recommendations/products.json?product_id=' + product_json.id + '&intent=related';
+
+      const response2 = await fetch(window.Shopify.routes.root + response2_string);
+      console.log(response2);
+      const recommendations = await response2.json();
+      console.log(recommendations);
+      for (let product of recommendations.products) {
+        const newElement = document.createElement('li');
+        newElement.innerText = product.title;
+        recommendation_elem.append(newElement);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  });
+</script>

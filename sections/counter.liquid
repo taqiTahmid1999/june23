@@ -1,0 +1,64 @@
+<h1 id="hello" data-template="{{ template.name }}" data-number="{{ section.settings.number }}">
+  {{ section.settings.greetings }} -> <span id="hello_num">{{ section.settings.number }}</span>
+</h1>
+<button id="increament">+</button>
+<style>
+  h1{
+      color: {{ section.settings.text_color }};
+  }
+  #increament{
+    color:  {{ section.settings.text_color |  color_darken: 30 }};
+    border-color: {{ section.settings.text_color |  color_darken: 30 }};
+    background-color:  {{ section.settings.text_color }};
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem 1rem ;
+
+  }
+</style>
+{% comment %}
+  <script>
+    const dataset_property = document.getElementById('hello').dataset;
+    console.log(dataset_property.template);
+    const hello_num_elem = document.getElementById('hello_num');
+    const increament_elem = document.getElementById('increament');
+    increament_elem.addEventListener('click', function () {
+      hello_num_elem.innerText++;
+      console.log(hello_num_elem.innerText);
+    });
+  </script>
+{% endcomment %}
+{% schema %}
+{
+  "name": "Counter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "greetings",
+      "label": "Greetings",
+      "default": "Assalamualaikum"
+    },
+    {
+      "type": "number",
+      "id": "number",
+      "label": "Count",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "text_color",
+      "default": "#9FA1FF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Counting Section",
+      "settings": {
+        "text_color": "#4B1426",
+        "greetings": "Walaikumul Hi!",
+        "number": 1
+      }
+    }
+  ]
+}
+{% endschema %}
