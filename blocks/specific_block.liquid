@@ -1,0 +1,22 @@
+<div>{{ block.settings.para }}</div>
+{% schema %}
+{
+  "name": "Specific Block",
+  "settings": [
+    {
+      "type": "text",
+      "default": "Specific Block",
+      "id": "para",
+      "label": "Specific Block Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specific Block Preset",
+      "settings": {
+        "para": "Specific Block Preset"
+      }
+    }
+  ]
+}
+{% endschema %}

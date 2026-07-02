@@ -1,25 +1,97 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  // LAYOUT (optional) — which layout file wraps this template
-  // omit = layout/theme.liquid (default) | "full-width" = layout/full-width.liquid | false = bare page, no layout, NOT customizable in theme editor
   "layout": "different",
-  // WRAPPER (optional) — wraps ALL sections in ONE HTML element
-  // syntax: tag#id.class[attr=value] — tag must be div, main, or section ONLY (no other tags allowed)
-  // renders as: <tag id="id" class="class" attr="value"> ...all sections... </tag>
-
-  // SECTIONS (required) — defines every section on the page
   "sections": {
-    // section ID: your internal label, alphanumeric only, unique within this template
+    "nested_block_section": {
+      "type": "demo",
+      "blocks": {
+        "nested_block": {
+          "type": "nested_block",
+          "settings": {
+            "title": "This is from nested block level 1"
+          },
+          "blocks": {
+            "nested_block_1": {
+              "type": "nested_block",
+              "settings": {
+                "title": "This is from nested block level 2"
+              },
+              "blocks": {
+                "nested_block_2": {
+                  "type": "demo_block",
+                  "settings": {
+                    "title": "This is from Demo block level 2",
+                    "text_color": "#E68457"
+                  }
+                }
+              },
+              "block_order": [
+                "nested_block_2"
+              ]
+            }
+          },
+          "block_order": [
+            "nested_block_1"
+          ]
+        }
+      },
+      "block_order": [
+        "nested_block"
+      ],
+      "settings": {
+        "title": "This is from nested block section"
+      }
+    },
     "main": {
-      // type: REQUIRED, must match a .liquid filename in /sections (no extension)
-      // missing file = error. App sections are the only exception to this rule
-      "type": "counter"
-      // disabled: optional bool, default false — true = hidden on storefront but still editable in theme editor
-      // settings: optional — keys MUST match setting IDs defined in this section's schema
+      "type": "counter",
+      "settings": {}
+    },
+    "slideShow": {
+      "type": "demo",
+      "blocks": {
+        "demo_block": {
+          "type": "demo_block",
+          "settings": {
+            "title": "This is from Demo Block",
+            "text_color": "#FF9E20"
+          }
+        }
+      },
+      "block_order": [
+        "demo_block"
+      ],
+      "settings": {
+        "title": "Nice Job Dude"
+      }
+    },
+    "specific_section": {
+      "type": "specific_section",
+      "blocks": {
+        "specific_block": {
+          "type": "specific_block",
+          "settings": {
+            "para": "This is specific type"
+          }
+        }
+      },
+      "block_order": [
+        "specific_block"
+      ],
+      "settings": {}
     }
   },
-
-  // ORDER (required) — array of section IDs, top-to-bottom render order
-  // IDs must EXACTLY match keys in "sections" above, no duplicates allowed
-  // this is the array merchants rearrange in the theme editor
-  "order": ["main"]
+  "order": [
+    "nested_block_section",
+    "slideShow",
+    "main",
+    "specific_section"
+  ]
 }

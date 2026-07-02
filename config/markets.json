@@ -8,15 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "context": {
-    "market": "canada"
-  },
-  "parent": "product.alt.json",
-  "sections": {
-    "main": {
-      "settings": {
-        "text_color": "#2E4540"
-      }
+  "markets": {
+    "canada": {
+      "parent": "@default"
     }
   }
 }

@@ -1,0 +1,19 @@
+<p>{{ block.settings.title }}</p>
+{% schema %}
+{
+  "name": "Private Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Private Block",
+      "label": "Private Block Title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Private Block Preset"
+    }
+  ]
+}
+{% endschema %}

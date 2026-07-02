@@ -1,0 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+// FILE NAMING: sections/{group-name}.context.{value}.json
+// e.g. header-group.context.ca.json = header group override for Canada market
+// this file is also auto-created when a merchant adapts a group for a buyer context in the editor
+{
+  // CONTEXT (required) — defines WHEN this override activates
+  "context": {
+    // "market": "<market_handle>" → activates only for that market's visitors
+    // "b2b": true → activates only for B2B wholesale customers
+    // use ONE of these per context block
+    "market": "canada"
+  },
+
+  // PARENT (required) — base section group file this override inherits from
+  // only the sections/settings/blocks you override need to be listed below —
+  // everything else inherits from parent AS-IS
+  "parent": "header-group.json",
+
+  // SECTIONS — only include sections/settings/blocks you want to OVERRIDE
+  // unlisted sections, settings, and blocks fall back to the parent group
+  "sections": {
+    "main": {
+      // settings here override ONLY the keys listed — others stay as parent defines them
+      "settings": {
+        "title": "Hello From Header Group (Canada)"
+      }
+      // blocks — override specific blocks by their parent block ID
+    }
+  }
+}

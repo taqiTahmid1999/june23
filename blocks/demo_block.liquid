@@ -1,0 +1,30 @@
+<h1 id="title">{{ block.settings.title }}</h1>
+<style>
+  #title {
+      color: {{ block.settings.text_color }};
+  }
+</style>
+{% schema %}
+{
+  "name": "Demo Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Demo Block"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2E4540"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Demo Block Preset"
+    }
+  ]
+}
+{% endschema %}

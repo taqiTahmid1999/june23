@@ -1,4 +1,5 @@
 <h1>{{ section.settings.title }}</h1>
+{% content_for 'blocks' %}
 {% schema %}
 {
   // NAME (required) — display title in theme editor sidebar. Make it clear/descriptive.
@@ -37,7 +38,7 @@
 
   // MAX_BLOCKS (optional) — custom cap below Shopify's absolute limit of 50 blocks/section
   // shows "Add slide (3/5 used)" feedback in editor. ⚠️ static blocks do NOT count toward this — only dynamic ones.
-
+  "blocks": [{ "type": "@theme" }, { "type": "@app" }],
   // PRESETS (optional, but REQUIRED for merchants to add this section from the Add Section picker)
   // name (required, label in picker + persisted in JSON) | category (optional, groups under collapsible heading)
   // settings/blocks (optional, prefill on add). Presets sort alphabetically; uncategorized ones show first.
@@ -48,7 +49,43 @@
       "category": "Banners",
       "settings": {
         "title": "Featured Text"
-      }
+      },
+      "blocks": [
+        {
+          "type": "demo_block",
+          "settings": {
+            "title": "This is from Demo Block",
+            "text_color": "#FF9E20"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nested Block Section",
+      "settings": {
+        "title": "This is from nested block section"
+      },
+      "blocks": [
+        {
+          "type": "nested_block",
+          "settings": {
+            "title": "Nested Block level 1"
+          },
+          "blocks": [
+            {
+              "type": "nested_block",
+              "settings": { "title": "Nested Block level 2" }
+            },
+            {
+              "type": "demo_block",
+              "settings": {
+                "title": "Demo Block level 2",
+                "text_color": "#E68457"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 

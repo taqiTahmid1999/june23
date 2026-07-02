@@ -1,0 +1,14 @@
+<p style="color: {{ text_color }};">{{ block.settings.title }}</p>
+{% schema %}
+{
+  "name": "Static Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Static Block",
+      "label": "Static Block Title"
+    }
+  ]
+}
+{% endschema %}

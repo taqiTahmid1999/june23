@@ -1,0 +1,27 @@
+{% content_for 'block', type: 'static_block', id: 'static_block', text_color: '#E68457' %}
+<h1>{% content_for 'blocks' %}</h1>
+{% schema %}
+{
+  "name": "Static Private Section",
+  "blocks": [
+    {
+      "type": "_private"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Static Private Section Preset",
+      "blocks": [
+        {
+          "type": "static_block",
+          "static": true,
+          "id": "static_block"
+        },
+        {
+          "type": "_private"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

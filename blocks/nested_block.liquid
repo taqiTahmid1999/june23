@@ -1,0 +1,26 @@
+<h1>{{ block.settings.title }}</h1>
+{% content_for 'blocks' %}
+
+{% schema %}
+{
+  "name": "Nested Block",
+  "settings": [
+    {
+      "type": "text",
+      "default": "This is nested block",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [{ "type": "@theme" }],
+  "presets": [
+    {
+      "name": "Nested Preset 1",
+      "settings": {
+        "title": "This is from nested preset 1"
+      },
+      "blocks": [{ "type": "@theme" }]
+    }
+  ]
+}
+{% endschema %}

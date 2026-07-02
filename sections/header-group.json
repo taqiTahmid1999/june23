@@ -8,15 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "context": {
-    "market": "canada"
-  },
-  "parent": "product.alt.json",
+  "type": "header",
+  "name": "header",
   "sections": {
     "main": {
+      "type": "demo",
       "settings": {
-        "text_color": "#2E4540"
+        "title": "Hello From Header Group"
       }
     }
-  }
+  },
+  "order": ["main"]
 }
