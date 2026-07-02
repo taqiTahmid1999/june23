@@ -12,5 +12,12 @@
       <button @click="count++">Increament</button>
       <p x-text="count"></p>
     </div>
+    <div x-data="{open: false}">
+      <p x-show="open" @click.outside="open= false">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe quo sapiente tenetur? Facere eligendi ad
+        magnam non rerum sit?
+      </p>
+      <button @click="open = ! open">Toggle</button>
+    </div>
   </body>
 </html>
