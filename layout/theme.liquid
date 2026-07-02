@@ -21,7 +21,7 @@
     </div>
     <div x-data="{ result: 'Result'}">
       <p x-text="result"></p>
-      <button @click.inside="result = 'Inside'" @click.outside="result = 'Outside'">Manipulate</button>
+      <button @click="result = 'Inside'" @click.outside="result = 'Outside'">Manipulate</button>
     </div>
   </body>
 </html>
