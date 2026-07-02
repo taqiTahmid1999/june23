@@ -14,11 +14,14 @@
     </div>
     <div x-data="{open: false}">
       <button @click="open = ! open">Toggle</button>
-
       <p x-show="open" @click.outside="open= false">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero saepe quo sapiente tenetur? Facere eligendi ad
         magnam non rerum sit?
       </p>
+    </div>
+    <div x-data="{ result: 'Result'}">
+      <p x-text="result"></p>
+      <button @click.inside="result = 'Inside'" @click.outside="result = 'Outside'">Manipulate</button>
     </div>
   </body>
 </html>
