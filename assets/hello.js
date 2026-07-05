@@ -1,5 +1,6 @@
 console.log("This is from Hello Function");
-
+const innerFunction = outerFunction(6);
+innerFunction(9);
 function outerFunction(outer_param) {
   const hello = function () {
     console.log("Hello World from Outer");
@@ -13,5 +14,3 @@ function outerFunction(outer_param) {
     hello();
   };
 }
-const innerFunction = outerFunction(6);
-innerFunction(9);
