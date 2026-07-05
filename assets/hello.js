@@ -1,9 +1,9 @@
 console.log("This is from Hello Function");
 
 function outerFunction(outer_param) {
-  function hello() {
+  const hello = function () {
     console.log("Hello World from Outer");
-  }
+  };
   console.log(`From Outer: ${outer_param}.`);
   return function (inner_param) {
     console.log(`From Inner: ${inner_param}.`);
