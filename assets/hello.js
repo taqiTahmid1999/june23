@@ -14,3 +14,21 @@ function outerFunction(outer_param) {
     hello();
   };
 }
+function factory() {
+  console.log("Factory Function");
+  return {
+    product1: (param1) => {
+      console.log(`Product 1: ${param1}`);
+    },
+    product2: (param2) => {
+      console.log(`Product 2: ${param2}`);
+    },
+    product3: (param3) => {
+      console.log(`Product 3: ${param3}`);
+    },
+  };
+}
+const bucket = factory();
+bucket.product1(1);
+bucket.product2(2);
+bucket.product3(3);
