@@ -34,12 +34,12 @@ bucket.product2(2);
 bucket.product3(3);
 const obj = {
   name: "Taqi Tahmid",
-  greeting: function () {
-    console.log("This is " + this.name);
+  greeting: function (age) {
+    console.log("This is " + this.name + " and his age is: " + age);
   },
 };
 // normal this binding
-obj.greeting();
+obj.greeting(23);
 // lost bindings
 const objFn = obj.greeting;
 // objFn();
