@@ -38,4 +38,8 @@ const obj = {
     console.log("This is " + this.name);
   },
 };
+// normal this binding
 obj.greeting();
+// lost bindings
+const objFn = obj.greeting;
+objFn();
