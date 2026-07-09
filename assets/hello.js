@@ -41,8 +41,7 @@ const obj = {
 // normal this binding
 obj.greeting();
 // lost bindings
-const objFn1 = obj.greeting;
-const objFn2 = obj.greeting;
-objFn1();
+const objFn = obj.greeting;
+// objFn();
 // explicite this binding
-objFn2.call(obj);
+objFn.call(obj);
