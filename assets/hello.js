@@ -32,3 +32,10 @@ const bucket = factory();
 bucket.product1(1);
 bucket.product2(2);
 bucket.product3(3);
+const obj = {
+  name: "Taqi Tahmid",
+  greeting: function () {
+    console.log("This is " + this.name);
+  },
+};
+obj.greeting();
