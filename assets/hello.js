@@ -42,4 +42,4 @@ const obj = {
 obj.greeting();
 // lost bindings
 const objFn = obj.greeting;
-objFn();
+objFn.call(obj);
