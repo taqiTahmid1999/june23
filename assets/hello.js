@@ -44,4 +44,4 @@ obj.greeting(23);
 const objFn = obj.greeting;
 // objFn();
 // explicite this binding
-objFn.bind(obj, [23]);
+console.log(objFn.bind(obj, [23]));
