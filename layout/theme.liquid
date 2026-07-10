@@ -12,12 +12,16 @@
       x-data="
         {
         input:'',
-        items: ['foo','football','zoo']
+        items: ['foo','football','zoo'],
+        get filteredItems(){
+        return this.items.filter(i => i.startsWith(this.input))
+        }
         }
       "
     >
       <input type="text" x-model="input">
       <p>Search Txt: <span x-text="input"></span></p>
+      <p x-text="filteredItems"></p>
     </div>
   </body>
 </html>
