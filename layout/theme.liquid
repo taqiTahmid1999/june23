@@ -14,15 +14,13 @@
         input:'',
         items: ['foo','football','zoo'],
         get filteredItems(){
-        if(this.input)
         return this.items.filter(i => i.startsWith(this.input))
         }
         }
       "
     >
       <input type="text" x-model="input">
-      <p>Search Txt: <span x-text="input"></span></p>
-      <p x-text="filteredItems"></p>
+      <p x-show="input">Search Txt: <span x-text="input"></span></p>
       <ul>
         <template x-for="item in filteredItems">
           <li x-text="item"></li>
