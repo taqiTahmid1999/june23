@@ -11,12 +11,13 @@
     <div
       x-data="
         {
-        input:''
+        input:'',
+        items: ['foo','football','zoo']
         }
       "
     >
       <input type="text" x-model="input">
-      <p x-text="input"></p>
+      <p>Search Txt: <span x-text="input"></span></p>
     </div>
   </body>
 </html>
