@@ -23,6 +23,11 @@
       <input type="text" x-model="input">
       <p>Search Txt: <span x-text="input"></span></p>
       <p x-text="filteredItems"></p>
+      <ul>
+        <template x-for="item in filteredItems">
+          <li x-text="item"></li>
+        </template>
+      </ul>
     </div>
   </body>
 </html>
