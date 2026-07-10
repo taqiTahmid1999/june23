@@ -8,5 +8,15 @@
   </head>
   <body>
     {{ content_for_layout }}
+    <div
+      x-data="
+        {
+        input:''
+        }
+      "
+    >
+      <input type="text" x-model="input">
+      <p x-text="input"></p>
+    </div>
   </body>
 </html>
