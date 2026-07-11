@@ -34,5 +34,20 @@
       <p x-text="$store.tabs.greetings"></p>
     </div>
     <div x-data="{ html: '<h1>Hello World</h1>'}" x-html="html"></div>
+    <div
+      x-data="
+        {
+            current:1,
+            items:[1,2,3],
+            get tabs(){
+                return this.items.filter(i => i != this.current)
+            }
+        }
+      "
+    >
+      <template x-for="item in tabs">
+        <h1 x-text="item"></h1>
+      </template>
+    </div>
   </body>
 </html>
