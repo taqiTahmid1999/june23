@@ -33,8 +33,6 @@
     <div x-data>
       <p x-text="$store.tabs.greetings"></p>
     </div>
-    <div x-data="{ html: '<h1>Hello World</h1>'}">
-      <span x-html="html"></span>
-    </div>
+    <div x-data="{ html: '<h1>Hello World</h1>'}" x-html="html"></div>
   </body>
 </html>
