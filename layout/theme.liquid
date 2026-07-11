@@ -27,15 +27,14 @@
         </template>
       </ul>
     </div>
-    <div>
+    <div x-data="linklist">
       <hr>
-      <template> </template>
+      <template x-for="tab in tabs"> </template>
       <hr>
-    </div>
-    <div x-data>
-      <button @click="$store.tabs.current='first'">First Tab</button>
-      <button @click="$store.tabs.current='second'">Second Tab</button>
-      <button @click="$store.tabs.current='third'">Third Tab</button>
+
+      <button @click="current='first'">First Tab</button>
+      <button @click="current='second'">Second Tab</button>
+      <button @click="current='third'">Third Tab</button>
     </div>
   </body>
 </html>
