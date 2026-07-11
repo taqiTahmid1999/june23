@@ -32,8 +32,10 @@
       <template> </template>
       <hr>
     </div>
-    <button>First Tab</button>
-    <button>Second Tab</button>
-    <button>Third Tab</button>
+    <div x-data>
+      <button @click="$store.tabs.current='first'">First Tab</button>
+      <button @click="$store.tabs.current='second'">Second Tab</button>
+      <button @click="$store.tabs.current='third'">Third Tab</button>
+    </div>
   </body>
 </html>
