@@ -27,17 +27,5 @@
         </template>
       </ul>
     </div>
-    <div x-data="linklist">
-      <p x-text="current"></p>
-      <hr>
-      <template x-for="tab in show">
-        <p x-text="tab"></p>
-      </template>
-      <hr>
-
-      <button @click="current='first'">First Tab</button>
-      <button @click="current='second'">Second Tab</button>
-      <button @click="current='third'">Third Tab</button>
-    </div>
   </body>
 </html>
