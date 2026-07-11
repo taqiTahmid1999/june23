@@ -53,13 +53,8 @@
         }
       "
     >
-      {% comment %}
-        <template x-for="item in tabs">
-          <h1 x-text="item" :class="item%2==0 ? 'even': 'odd'"></h1>
-        </template>
-      {% endcomment %}
-      <template x-for="item in items">
-        <h1 x-if="current" x-text="item" :class="item%2==0 ? 'even': 'odd'"></h1>
+      <template x-for="item in tabs">
+        <h1 x-text="item" :class="item%2==0 ? 'even': 'odd'"></h1>
       </template>
       <template x-for="tab in items">
         <button x-text="tab" @click="current = tab"></button>
