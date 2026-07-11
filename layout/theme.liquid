@@ -21,7 +21,7 @@
     >
       <input type="text" x-model="input">
       <p x-show="input">Search Txt: <span x-text="input"></span></p>
-      <ul>
+      <ul x-show="input">
         <template x-for="item in filteredItems">
           <li x-text="item"></li>
         </template>
