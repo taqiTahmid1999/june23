@@ -29,7 +29,9 @@
     </div>
     <div x-data="linklist">
       <hr>
-      <template x-for="tab in tabs"> </template>
+      <template x-for="tab in show">
+        <p x-text="tab"></p>
+      </template>
       <hr>
 
       <button @click="current='first'">First Tab</button>
