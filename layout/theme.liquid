@@ -25,8 +25,8 @@
     <div x-data="{message: 'Hello World',count:0}" class="box">
       <p x-text="message"></p>
       <button @click="count++" x-text="count" @click.outside="count--"></button>
-      <template x-for="i in (1 ... 6)">
-        <li x-text="count"></li>
+      <template x-for="i in [1,2,3,4]">
+        <li x-text="i"></li>
       </template>
     </div>
   </body>
