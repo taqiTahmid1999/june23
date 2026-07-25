@@ -6,6 +6,11 @@
     <script src="{{ 'main.js' | asset_url }}" type="module"></script>
     <script src="{{ 'hello.js' |  asset_url }}" type="module"></script>
     <style>
+      .box {
+        padding: 4rem;
+        border-radius: 1px solid black;
+        border-radius: 3px;
+      }
       .odd {
         color: palevioletred;
       }
@@ -16,7 +21,7 @@
   </head>
   <body>
     {{ content_for_layout }}
-    <div x-data="{message: 'Hello World',count:0}">
+    <div x-data="{message: 'Hello World',count:0}" class="box">
       <p x-text="message"></p>
       <button @click="count++" x-text="count"></button>
     </div>
