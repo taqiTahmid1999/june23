@@ -27,7 +27,7 @@
         {
         message: 'Hello World',count:0, obj : ['foo','football','zoo'],
         get message(){
-        return this.obj}
+        return this.obj.filter(i=>i.startsWith(this.message))}
         }
       "
       class="box"
