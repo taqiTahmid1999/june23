@@ -16,6 +16,9 @@
   </head>
   <body>
     {{ content_for_layout }}
-    <div x-data="{message: 'Hello World'}"></div>
+    <div x-data="{message: 'Hello World',count:0}">
+      <p x-text="message"></p>
+      <button @click="count++" x-text="count"></button>
+    </div>
   </body>
 </html>
