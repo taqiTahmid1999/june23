@@ -24,7 +24,7 @@
     {{ content_for_layout }}
     <div x-data="{message: 'Hello World',count:0}" class="box">
       <p x-text="message"></p>
-      <button @click="count++" x-text="count"></button>
+      <button @click="count++" x-text="count" @click.outside="count--"></button>
     </div>
   </body>
 </html>
