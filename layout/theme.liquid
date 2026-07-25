@@ -16,49 +16,5 @@
   </head>
   <body>
     {{ content_for_layout }}
-    <div
-      x-data="
-        {
-        input:'',
-        items: ['foo','football','zoo'],
-        get filteredItems(){
-        return this.items.filter(i => i.startsWith(this.input))
-        }
-        }
-      "
-    >
-      <input type="text" x-model="input">
-      <p x-show="input">Search Txt: <span x-text="input"></span></p>
-      <ul x-show="input">
-        <template x-for="item in filteredItems">
-          <li x-text="item"></li>
-        </template>
-      </ul>
-    </div>
-    <div x-data="linklist">
-      <p x-text="greetings"></p>
-    </div>
-    <div x-data>
-      <p x-text="$store.tabs.greetings"></p>
-    </div>
-    <div x-data="{ html: '<h1>Hello World</h1>'}" x-html="html"></div>
-    <div
-      x-data="
-        {
-            current:1,
-            items:[1,2,3,4,5,6,7],
-            get tabs(){
-                return this.items.filter(i => i != this.current)
-            }
-        }
-      "
-    >
-      <template x-for="item in tabs">
-        <h1 x-text="item" :class="item%2==0 ? 'even': 'odd'"></h1>
-      </template>
-      <template x-for="tab in items">
-        <button x-text="tab" @click="current = tab"></button>
-      </template>
-    </div>
   </body>
 </html>
