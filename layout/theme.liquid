@@ -26,8 +26,8 @@
       x-data="
         {
         message: 'Hello World',count:0, obj : ['foo','football','zoo'],
-        get message(){
-        return this.obj.filter(i=>i.startsWith(this.message))}
+        get search(){
+        return this.obj.filter(i=>i.includes(this.message))}
         }
       "
       class="box"
@@ -35,7 +35,7 @@
       <p x-text="message"></p>
       <button @click="count++" x-text="count" @click.outside="count--"></button>
       <input type="text" x-model="message">
-      <template x-for="i in message">
+      <template x-for="i in search">
         <li x-text="i"></li>
       </template>
     </div>
